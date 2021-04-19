@@ -15,7 +15,6 @@ bugArray:any;
     getBugs(name:string){
       const observable=this.bugService.getBugs(name);
       observable.subscribe(response=>{console.log(response);this.bugArray=response});
-
     }
 
 

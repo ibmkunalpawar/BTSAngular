@@ -5,12 +5,16 @@ import {HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { CreateBugComponent } from './create-bug/create-bug.component';
 import { ShowBugsComponent } from './show-bugs/show-bugs.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateBugComponent,
-    ShowBugsComponent
+    ShowBugsComponent,
+    SidenavComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,FormsModule

@@ -49,30 +49,25 @@
 <br>
 <table class='table'>
   <thead style="text-align-last: center;">
-    <th>name</th>
-    <th>id</th>
+    <th>Name</th>
+    <th>Id</th>
     <th>STATUS</th>
     <th>TYPE</th>
     <th>ETA</th>
     <th>SEVERITY</th>
     <th>Project ID</th>
     <th>Synopsis</th>
-
-
-
-
   </thead>
   <tbody>
     <tr *ngFor='let bug of bugArray; index as i'>
-      <td>{{bug.name}}</td>
+      <td>{{bug.name |titlecase}}</td>
       <td>{{bug.id}}</td>
       <td>{{bug.status}}</td>
-
-      <td>{{bug.type}}</td>
+      <td>{{bug.type |titlecase}}</td>
       <td>{{bug.eta | date}}</td>
-      <td>{{bug.severity}}</td>
+      <td>{{bug.severity |titlecase}}</td>
       <td>{{bug.projectId}}</td>
-      <td>{{bug.synopsis}}</td>
+      <td>{{bug.synopsis|titlecase}}</td>
 
     </tr>
   </tbody>

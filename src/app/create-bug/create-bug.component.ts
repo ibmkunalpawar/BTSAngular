@@ -20,7 +20,7 @@ bugArray:any;
   promise.subscribe(response =>{
     console.log(response);
     this.bugArray=response;
-    alert('bug added..')
+    alert('Bug Added..')
     this.bugArray.push(Object.assign({},this.bug));
 
   },

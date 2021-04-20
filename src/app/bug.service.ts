@@ -14,4 +14,7 @@ export class BugService {
   getBugs(name:string) {
     return this.http.get('http://localhost:8083/bug/'+name);
   }
+  getBugsByStatus(status: string) {
+    return this.http.get('http://localhost:8083/bug/status/'+status);
+  }
 }

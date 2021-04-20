@@ -3,13 +3,11 @@
   <!-- <form class="form-inline"> -->
       <div class="col-sm-10 text-left" id="column1" style="background-color: #f8f9fa;">
           <div id="bugFields" class="column form-group">
-<label><b>Bug ID</b></label>
-<input class="form-control" type="text" placeholder="Enter Bug ID" [(ngModel)]=bug.id>
-<br>
+
 
 <label><b>Bug Name <span style="color:red">* </span></b></label>
 
-<input class="form-control" type="text" placeholder="Enter Bug Name" id='bugname' [(ngModel)]=bug.name required>
+<input class="form-control" required maxlength="10" type="text" placeholder="Enter Bug Name" id='bugname' [(ngModel)]=bug.name required>
 <br>
 <label><b>Bug Status <span style="color:red" >*</span></b></label>
 <select class="form-control" id="status" [(ngModel)]=bug.status>
@@ -66,20 +64,20 @@
 <br>
 
 <label><b>projectId</b></label>
-<input class="form-control" type="text" id='developerid' placeholder="Enter Developer ID" [(ngModel)]=bug.projectId>
+<input class="form-control" type="text" id='developerid' placeholder="" [(ngModel)]=bug.projectId>
 <br>
 
 <label><b>Developer ID</b></label>
-<input class="form-control" type="text" id='developerid' placeholder="Enter Developer ID" [(ngModel)]=bug.developerId>
+<input class="form-control" type="text" id='developerid' placeholder="" [(ngModel)]=bug.developerId>
 <br>
 <label><b>Tester ID</b></label>
-<input class="form-control" type="text" id='testerid' placeholder="Enter Tester ID" [(ngModel)]=bug.testerId>
+<input class="form-control" type="text" id='testerid' placeholder="" [(ngModel)]=bug.testerId>
 <br>
 <label><b>Synopsis <span style="color:red">*</span></b></label>
-<textarea class="form-control" name="" id="synopsis" cols="30" rows="2" [(ngModel)]=bug.synopsis></textarea>
+<textarea class="form-control" name="" id="synopsis" cols="30" rows="2" placeholder ="Synopsis should be maximum 10-30 words" [(ngModel)]=bug.synopsis></textarea>
 <br>
 <label><b>Description <span style="color:red">*</span></b></label>
-<textarea class="form-control" name="" id="description" cols="30" rows="4" [(ngModel)]=bug.description></textarea>
+<textarea class="form-control" name="" id="description" cols="30" rows="4" placeholder="Description should be maximum 10-50 words" [(ngModel)]=bug.description></textarea>
 
 </div>
 

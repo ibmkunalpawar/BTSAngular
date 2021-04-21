@@ -8,26 +8,27 @@ import {BugService} from '../bug.service'
   styleUrls: ['./create-bug.component.css']
 })
 export class CreateBugComponent implements OnInit {
-title:string="CreateBug";
-bug:Bug= new Bug();
-bugArray:any;
- constructor( private bugService:BugService){}
- save(){
-  // console.log("button binding works");
-  // console.log(this.user.firstname);
-  // this.user.firstname="Kishan";
-  const promise=this.bugService.save(this.bug);
-  promise.subscribe(response =>{
-    console.log(response);
-    this.bugArray=response;
-    alert('Bug Added..')
-    this.bugArray.push(Object.assign({},this.bug));
-
-  },
+  title:string="CreateBug";
+  bug:Bug= new Bug();
+   bugchild:Bug= new Bug();
+  bugArray:Bug[]=[];
+   constructor( private bugService:BugService){}
+   save(){
+     if(!this.bugService.validateBug(this.bug))
+     return;
+    const promise=this.bugService.save(this.bug);
+    promise.subscribe(response =>{
+      console.log(response);
+      alert('bug added..')
+      this.bugArray.push(Object.assign({},this.bug))},
   error=>{
     console.log(error);
+    if(error.statusText!=='OK')
     alert("Error !! : "+error.headers.get("error"))
-  })
+    else{
+      alert('bug added..');
+    }
+  });
 }
   ngOnInit(): void {
 

@@ -1,75 +1,81 @@
 <div class="container-fluid text-center" style="background-color: #f8f9fa;">
   <div class="row content">
-      <div class="">
-          <br>
+    <div class="">
+      <br>
 
-        <app-sidenav></app-sidenav>
-      </div>
-
-
+      <app-sidenav></app-sidenav>
+    </div>
 
 
-      <div id='search' class="col-sm-12 bg-light text-dark" style="background-color:#f8f9fa">
-          <div class="container">
-              <br >
-              <div class="row justify-content-center">
 
-                  <div class="col-8 col-md-12 col-lg-12">
 
-                      <div class="card-body row no-gutters align-items-center">
+    <div id='search' class="col-sm-12 bg-light text-dark" style="background-color:#f8f9fa">
+      <div class="container">
+        <br>
+        <div class="row justify-content-center">
 
-                          <!--end of col-->
-                          <div class="form-inline">
-                            <br>
-<input [(ngModel)]=bug.name  class="form-control form-control-lg form-control-borderless" type="search"
-  placeholder="Enter Bug Name">
+          <div class="col-8 col-md-12 col-lg-12">
 
-  <button (click)='getBugs(bug.name)' style="margin: 10px;margin-right: 100px;" class="btn btn-lg btn-success"> Search</button>
-<span class="col-1 col-md-1 col-lg-1">   </span>
-<label> </label>
-<label> </label>
-<select style="margin: 10px;" class="form-control" id="status" [(ngModel)]=bug.status>
-  <option value='NEW'>NEW</option>
-  <option value='ASSIGNED'>ASSIGNED</option>
-  <option value='OPEN'>OPEN</option>
-  <option value='FIXED'>FIXED</option>
-  <option value='PENDING_RETEST'>PENDING_RETEST</option>
-  <option value='RETEST'>RETEST</option>
-  <option value='REOPEN'>REOPEN</option>
-  <option value='VERIFIED'>VERIFIED</option>
-  <option value='CLOSED'>CLOSED</option>
-  <option value='REJECTED'>REJECTED</option>
-  <option value='DUPLICATED'>DUPLICATE</option>
-  <option value='DEFERRED'>DEFERRED</option>
-  <option value='NOT_A_BUG'>NOT_A_BUG</option>
-</select>
+            <div class="card-body row no-gutters align-items-center">
 
-  <button style="margin: 10px;" (click)='getBugsByStatus(bug.status)' class="btn btn-lg btn-success"> Search</button><br><br><br>
-</div>
-<br>
-<table class='table'>
-  <thead style="text-align-last: center;">
-    <th>Name</th>
-    <th>Id</th>
-    <th>STATUS</th>
-    <th>TYPE</th>
-    <th>ETA</th>
-    <th>SEVERITY</th>
-    <th>Project ID</th>
-    <th>Synopsis</th>
-  </thead>
-  <tbody>
-    <tr *ngFor='let bug of bugArray; index as i'>
-      <td>{{bug.name |titlecase}}</td>
-      <td>{{bug.id}}</td>
-      <td>{{bug.status}}</td>
-      <td>{{bug.type |titlecase}}</td>
-      <td>{{bug.eta | date}}</td>
-      <td>{{bug.severity |titlecase}}</td>
-      <td>{{bug.projectId}}</td>
-      <td>{{bug.synopsis|titlecase}}</td>
+              <!--end of col-->
+              <div class="form-inline">
+                <br>
+                <input [(ngModel)]=bug.name class="form-control form-control-lg form-control-borderless" type="search"
+                  placeholder="Enter Bug Name">
 
-    </tr>
-  </tbody>
+                <button (click)='getBugs(bug.name)' style="margin: 10px;margin-right: 100px;"
+                  class="btn btn-lg btn-success"> Search</button>
+                <span class="col-1 col-md-1 col-lg-1"> </span>
+                <label> </label>
+                <label> </label>
+                <select style="margin: 10px;" class="form-control" id="status" [(ngModel)]=bug.status>
+                  <option value='NEW'>NEW</option>
+                  <option value='ASSIGNED'>ASSIGNED</option>
+                  <option value='OPEN'>OPEN</option>
+                  <option value='FIXED'>FIXED</option>
+                  <option value='PENDING_RETEST'>PENDING_RETEST</option>
+                  <option value='RETEST'>RETEST</option>
+                  <option value='REOPEN'>REOPEN</option>
+                  <option value='VERIFIED'>VERIFIED</option>
+                  <option value='CLOSED'>CLOSED</option>
+                  <option value='REJECTED'>REJECTED</option>
+                  <option value='DUPLICATED'>DUPLICATE</option>
+                  <option value='DEFERRED'>DEFERRED</option>
+                  <option value='NOT_A_BUG'>NOT_A_BUG</option>
+                </select>
 
-</table>
+                <button style="margin: 10px;" (click)='getBugsByStatus(bug.status)' class="btn btn-lg btn-success">
+                  Search</button><br><br><br>
+              </div>
+              <br>
+              <table class="table table-bordered">
+                <thead style="text-align-last: center;">
+                  <tr>
+                    <th scope="col">Name</th>
+
+                    <th scope="col">STATUS</th>
+                    <th scope="col">TYPE</th>
+                    <th scope="col" >ETA</th>
+                    <th scope="col">SEVERITY</th>
+                    <th scope="col">Project ID</th>
+                    <th scope="col">Synopsis</th>
+                  </tr>
+
+
+                </thead>
+                <tbody>
+                  <tr *ngFor='let bug of bugArray; index as i'>
+                    <td>{{bug.name}}</td>
+
+                    <td>{{bug.status}}</td>
+                    <td>{{bug.type |titlecase}}</td>
+                    <td>{{bug.eta | date}}</td>
+                    <td>{{bug.severity |titlecase}}</td>
+                    <td>{{bug.projectId}}</td>
+                    <td>{{bug.synopsis|titlecase}}</td>
+
+                  </tr>
+                </tbody>
+
+              </table>

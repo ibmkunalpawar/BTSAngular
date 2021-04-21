@@ -7,6 +7,9 @@ import {Bug} from './Bug';
   providedIn: 'root'
 })
 export class BugService {
+  getBugByNameAndStatus(name: string,status:string) {
+    return this.http.get('http://localhost:8083/bug/search?status=' + status+'&name='+name);
+  }
   constructor(private http:HttpClient) { }
   save(bug:Bug){
     return this.http.post('http://localhost:8083/bug',bug,{headers:{"content-type":'application/json'}});

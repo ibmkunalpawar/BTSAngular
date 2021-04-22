@@ -13,7 +13,7 @@ bug:Bug=new Bug();
 bugArray:any;
   constructor(private bugService:BugService) { }
   usendBug(){
-    const promise=this.bugService.usendBug(this.bug);
+    const promise=this.bugService.putBug(this.bug);
     promise.subscribe(response =>{
       console.log(response);
       this.bugArray=response;

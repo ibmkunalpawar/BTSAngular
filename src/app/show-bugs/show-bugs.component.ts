@@ -16,7 +16,8 @@ export class ShowBugsComponent implements OnInit {
   getBugs(name: string) {
     const observable = this.bugService.getBugs(name);
     observable.subscribe(response => {
-      console.log(response); this.bugArray = response;
+      console.log(response);
+      this.bugArray = response;
       if (this.bugArray[0] == undefined) {
         return alert("No Data Found");
       }
@@ -27,6 +28,7 @@ export class ShowBugsComponent implements OnInit {
   deleteBug(id:number, index:number){
     const observable = this.bugService.delete(id);
     observable.subscribe(response=> this.bugArray.splice(index,1))
+    alert("Bug Deleted Successfully");
   }
 
   getBugByNameAndStatus(name:string,status: string)

@@ -20,8 +20,8 @@ export class BugService {
   getBugsByStatus(status: string) {
     return this.http.get('http://localhost:8083/bug/status/'+status);
   }
-  usendBug(bug:Bug){
-    return this.http.post('http://localhost:8083/bug',bug,{headers:{"content-type":'application/json'}});
+  putBug(bug:Bug){
+    return this.http.put('http://localhost:8083/bug',bug,{headers:{"content-type":'application/json'}});
   }
 
   delete(userid:number  ){

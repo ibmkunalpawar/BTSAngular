@@ -19,6 +19,7 @@ export class CreateBugComponent implements OnInit {
     const promise=this.bugService.save(this.bug);
     promise.subscribe(response =>{
       console.log(response);
+      //this.bug.id=response;
       alert('bug added..')
       this.bugArray.push(Object.assign({},this.bug))},
   error=>{

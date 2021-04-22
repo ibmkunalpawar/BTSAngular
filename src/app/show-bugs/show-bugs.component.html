@@ -74,6 +74,7 @@
                     <td>{{bug.severity |titlecase}}</td>
                     <td>{{bug.projectId}}</td>
                     <td>{{bug.synopsis|titlecase}}</td>
+                    <td><button (click)='this.deleteBug(bug.id, i)'>X</button></td>
 
                   </tr>
                 </tbody>

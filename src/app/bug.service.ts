@@ -24,6 +24,10 @@ export class BugService {
     return this.http.post('http://localhost:8083/bug',bug,{headers:{"content-type":'application/json'}});
   }
 
+  delete(userid:number  ){
+    return this.http.delete('http://localhost:8083/bug/'+userid);
+  }
+
 
   validateBug(bug: Bug) {
     let error = 0;

@@ -1,5 +1,5 @@
 export class Bug{
-  id:string;
+  id:String;
   name:string;
   priority:string;
   projectId:string;

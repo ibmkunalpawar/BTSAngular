@@ -24,6 +24,11 @@ export class ShowBugsComponent implements OnInit {
 
   }
 
+  deleteBug(id:number, index:number){
+    const observable = this.bugService.delete(id);
+    observable.subscribe(response=> this.bugArray.splice(index,1))
+  }
+
   getBugByNameAndStatus(name:string,status: string)
   {
     const observable = this.bugService.getBugByNameAndStatus(name,status);

@@ -28,6 +28,16 @@ export class BugService {
     return this.http.delete('http://localhost:8083/bug/'+userid);
   }
 
+  partialSearch(bugName:string)
+  {
+    return this.http.get('http://localhost:8083/bug/partialsearch/'+bugName)
+  }
+
+  update(bug: Bug, id: any) {
+    return this.http.put(URL + id, bug, {
+      headers: { 'content-type': 'application/json' },
+    });
+  }
 
   validateBug(bug: Bug) {
     let error = 0;
@@ -37,7 +47,7 @@ export class BugService {
       let remText = bug.name.replace(/ /g, "");
       if (remText.length < 1 || remText.length > 25) {
         error++;
-        errorText += error + ". Error- Name should be minimum 1 and maximum 25) \n";
+        errorText += error + ". Error- Name should be minimum 10 and maximum 25) \n";
       }
 
     }

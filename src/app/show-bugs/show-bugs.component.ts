@@ -12,6 +12,7 @@ export class ShowBugsComponent implements OnInit {
   title: string = "show bugs";
   bug: Bug = new Bug();
   bugArray: any;
+  tempbug:any;
   constructor(private bugService: BugService) { };
   getBugs(name: string) {
     const observable = this.bugService.getBugs(name);
@@ -26,10 +27,32 @@ export class ShowBugsComponent implements OnInit {
   }
 
   deleteBug(id:number, index:number){
+    var txt;
+    var r = confirm("Press a button to Delete this Bug");
+    if(r == true){
     const observable = this.bugService.delete(id);
     observable.subscribe(response=> this.bugArray.splice(index,1))
     alert("Bug Deleted Successfully");
   }
+  else{
+    alert("Bug not deleted!!!")
+  }
+}
+
+
+partialSearch(name:string)
+  {
+
+    const observable = this.bugService.partialSearch(name);
+    observable.subscribe(response => {
+      console.log(this.bugArray);
+      this.bugArray = response;
+      if (this.bugArray[0] == undefined) {
+        return alert("No Resposne for this input");
+      }
+    })
+ }
+
 
   getBugByNameAndStatus(name:string,status: string)
   {

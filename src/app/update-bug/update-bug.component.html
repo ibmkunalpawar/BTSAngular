@@ -1,104 +1,171 @@
-<div id="updateBugDetails" style="background-color: #f8f9fa;">
-  <form class="form-inline">
-      <br>
-      <span id='idselect'>
 
-      </span>
-      <br>
-
-      <div class="col-sm-10 text-left" id="column1" style="background-color: #f8f9fa;">
-
-          <div id="updateFields" class="column form-group">
-
-
-
-
-              <label><b>Bug Name <span style="color:red">*</span></b></label>
-
-              <input class="form-control" type="text" placeholder="Enter Bug Name" id='bugname' required>
-              <br>
-              <label><b>Bug Status <span style="color:red">*</span></b></label>
-
-              <select class="form-control" id="status">
-                  <option value='NEW'>NEW</option>
-                  <option value='ASSIGNED'>ASSIGNED</option>
-                  <option value='OPEN'>OPEN</option>
-                  <option value='FIXED'>FIXED</option>
-                  <option value='PENDING_RETEST'>PENDING_RETEST</option>
-                  <option value='RETEST'>RETEST</option>
-                  <option value='REOPEN'>REOPEN</option>
-                  <option value='VERIFIED'>VERIFIED</option>
-                  <option value='CLOSED'>CLOSED</option>
-                  <option value='REJECTED'>REJECTED</option>
-                  <option value='DUPLICATED'>DUPLICATE</option>
-                  <option value='DEFERRED'>DEFERRED</option>
-                  <option value='NOT_A_BUG'>NOT_A_BUG</option>
-              </select>
-              <br><br>
-
-              <label>Bug Priority <span style="color:red">*</span></label>
-
-              <select class="form-control" id='bugpriority'>
-                  <option value='HIGH'>HIGH</option>
-                  <option value='MEDIUM'>MEDIUM</option>
-                  <option value='LOW'>LOW</option>
-              </select><br><br>
-
-              <label>ETA</label>
-              <input class="form-control" id='date' type="date"><br>
-              <label><b>Module <span style="color:red">*</span></b></label>
-              <input class="form-control" type="text" id='module' placeholder="Enter Module">
-              <br>
-              <label><b>Build Version <span style="color:red">*</span></b></label>
-              <input class="form-control" type="text" id='buildversion' placeholder="Enter Build Version"
-                  required>
-              <label><b>Type </b></label>
-
-              <select class="form-control" id='type'>
-                  <option value='LOGICAL'>LOGICAL</option>
-                  <option value='SYNTAX'>SYNTAX</option>
-                  <option value='GUI'>GUI</option>
-                  <option value='API'>API</option>
-                  <option value='RUNTIME'>RUNTIME</option>
-              </select>
-              <br>
+<div class="container-fluid text-center" style="background-color: #f8f9fa">
+  <div class="row content" style="text-align: center">
+    <div style="text-align: center; margin-top: 20px">
+      <input [(ngModel)]="bug.name" name="name" placeholder="Enter Bug Name" size="50" /><br>
+      <button id="getBug" class="btn btn-lg btn-success" (click)='getBug()'>Get Bug</button>
+      <br />
+    </div>
+    <div id="bugDetails" style="background-color: #f8f9fa">
+      <form class="form-horizontal">
+        <div
+          class="col-sm-12 text-left"
+          id="column1"
+          style="background-color: #f8f9fa"
+        >
+          <div id="bugFields" class="column form-group">
+            <label>Bug Priority: <span style="color:red">*</span></label>
+            <select
+              [(ngModel)]="bug.priority"
+              name="priority"
+              id="priority"
+              class="form-control"
+              name="priority"
+            >
+              <option>LOW</option>
+              <option>MEDIUM</option>
+              <option>HIGH</option>
+            </select>
+            <br />
+            <label>Module <span style="color:red">*</span></label>
+            <input
+              [(ngModel)]="bug.module"
+              class="form-control"
+              name="module"
+            />
+            <br />
+            <label>Bug Type: <span style="color:red">*</span></label>
+            <select
+              [(ngModel)]="bug.type"
+              name="type"
+              id="type"
+              class="form-control"
+              name="type"
+            >
+              <option>LOGICAL</option>
+              <option>SYNTAX</option>
+              <option>API</option>
+              <option>GUI</option>
+              <option>RUNTIME</option>
+            </select>
+            <br />
+            <label>Bug Status: <span style="color:red">*</span></label>
+            <select
+              [(ngModel)]="bug.status"
+              id="status"
+              class="form-control"
+              name="status"
+            >
+              <option>NEW</option>
+              <option>ASSIGNED</option>
+              <option>OPEN</option>
+              <option>FIXED</option>
+              <option>PENDING_RETEST</option>
+              <option>RETEST</option>
+              <option>REOPEN</option>
+              <option>VERIFIED</option>
+              <option>CLOSED</option>
+              <option>REJECTED</option>
+              <option>DUPLICATE</option>
+              <option>DEFERRED</option>
+              <option>NOT_A_BUG</option>
+              <option>COULD_NOT_REPRODUCE</option>
+              <option>WONT_FIX</option>
+              <option>NEED_MORE_INFO</option>
+            </select>
+            <br />
+            <label>ETA: <span style="color:red">*</span></label>
+            <input
+              [(ngModel)]="bug.eta"
+              type="date"
+              class="form-control"
+              name="submitOn"
+            />
+            <br />
+            <label>Build Version:</label>
+            <input
+              [(ngModel)]="bug.buildVersion"
+              class="form-control"
+              name="buildVersion"
+            />
+            <br />
           </div>
-          <div class="column form-group" id="column2" style="background-color: #f8f9fa;">
 
-              <label><b>Severity <span style="color:red">*</span></b></label>
-
-              <select class="form-control" id='severity'>
-
-                  <option value='MINOR'>MINOR</option>
-                  <option value='MAJOR'>MAJOR</option>
-                  <option value='CRITICAL'>CRITICAL</option>
-                  <option value='BLOCKER'>BLOCKER</option>
-              </select>
-
-
-              <span id='idproject1'>
-
-              </span>
-              <br><br>
-              <label><b>Developer ID</b></label>
-              <input class="form-control" type="text" id='developerid' placeholder="Enter Developer ID">
-              <br>
-              <label><b>Tester ID</b></label>
-              <input class="form-control" type="text" id='testerid' placeholder="Enter Tester ID">
-              <br>
-
-              <label><b>Synopsis <span style="color:red">*</span></b></label>
-              <textarea class="form-control" name="" id="synopsis" cols="30" rows="2"></textarea>
-              <br>
-              <label><b>Description <span style="color:red">*</span></b></label>
-              <textarea class="form-control" name="" id="description" cols="30" rows="4"></textarea>
+          <div
+            class="column form-group"
+            id="column2"
+            style="background-color: #f8f9fa"
+          >
+            <label>Severity: <span style="color:red">*</span></label>
+            <select
+              [(ngModel)]="bug.severity"
+              name="severity"
+              id="severity"
+              class="form-control"
+              name="severity"
+            >
+              <option>LOW</option>
+              <option>MINOR</option>
+              <option>MAJOR</option>
+              <option>CRITICAL</option>
+              <option>BLOCKER</option>
+            </select>
+            <br />
+            <label>Project ID: <span style="color:red">*</span></label>
+            <input
+              [(ngModel)]="bug.projectId"
+              class="form-control"
+              name="projectId"
+            />
+            <br />
+            <label>Developer ID:</label>
+            <input
+              [(ngModel)]="bug.developerId"
+              class="form-control"
+              name="developerId"
+            />
+            <br />
+            <label>Tester ID:</label>
+            <input
+              [(ngModel)]="bug.testerId"
+              class="form-control"
+              name="testerId"
+            />
+            <br />
+            <label>Synopsis: <span style="color:red">*</span></label>
+            <textarea
+              [(ngModel)]="bug.synopsis"
+              name="synopsis"
+              id="synopsis"
+              rows="2"
+              cols="30"
+              class="form-control"
+              maxlength="50"
+              (keyup)="this.valueCheckSynopsis()"
+            ></textarea>
+            <div id="text1">
+              <span id="charSynopsis">50</span> <i> characters remaining</i>
+            </div>
+            <br />
+            <label>Description: <span style="color:red">*</span></label>
+            <textarea
+              [(ngModel)]="bug.description"
+              name="description"
+              id="description"
+              rows="4"
+              cols="30"
+              class="form-control"
+              maxlength="200"
+              (keyup)="this.valueCheckDescription()"
+            ></textarea>
+            <div id="text2">
+              <span id="charDescription">200</span> <i> characters remaining</i>
+            </div>
           </div>
-      </div>
-  </form>
-  <button (click)='usendBug() ' class="submitButton">Update Bug</button>
-
-
-  <br><br>
+        </div>
+      </form>
+      <br />
+    </div>
+    <button class="submitButton" (click)="this.update()">UPDATE BUG</button>
+  </div>
 </div>
-<br><br>
-<br><br>

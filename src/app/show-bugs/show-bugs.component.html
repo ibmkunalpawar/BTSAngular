@@ -24,8 +24,8 @@
                 <input [(ngModel)]=bug.name class="form-control form-control-lg form-control-borderless" type="search"
                   placeholder="Enter Bug Name">
 
-                <!-- <button (click)='getBugs(bug.name)' style="margin: 10px;margin-right: 100px;"
-                  class="btn btn-lg btn-success"> Search</button> -->
+                <button (click)='partialSearch(bug.name)' style="margin: 10px;margin-right: 100px;"
+                  class="btn btn-lg btn-success"> Search</button>
                 <span class="col-1 col-md-1 col-lg-1"> </span>
                 <label> </label>
                 <label> </label>
@@ -60,6 +60,7 @@
                     <th scope="col">SEVERITY</th>
                     <th scope="col">Project ID</th>
                     <th scope="col">Synopsis</th>
+                    <th scope="=col">Delete</th>
                   </tr>
 
 

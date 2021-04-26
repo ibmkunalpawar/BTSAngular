@@ -34,7 +34,7 @@ export class BugService {
   }
 
   update(bug: Bug, id: any) {
-    return this.http.put(URL + id, bug, {
+    return this.http.put('http://localhost:8083/bug/' + id, bug, {
       headers: { 'content-type': 'application/json' },
     });
   }

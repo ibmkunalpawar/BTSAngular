@@ -5,7 +5,7 @@ export class Bug{
   projectId:string;
   module:string;
   type:string;
-  status:string;
+  status:string="NEW";
   buildVersion:string;
   severity:string;
   testerId:string;

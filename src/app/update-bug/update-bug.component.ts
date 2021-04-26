@@ -89,7 +89,7 @@ export class UpdateBugComponent implements OnInit {
         alert('Bug Updated!');
       },
       (error) => {
-        alert('Bug Updated!!!!');
+        alert('Error : -'+error.headers.get('error'));
       }
     );
   }
